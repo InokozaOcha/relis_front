@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:relis/dummy1.dart';
-import 'package:relis/dummy2.dart';
+import 'package:relis/pages/dummy1/view/dummy1_page.dart';
+import 'package:relis/pages/dummy2/view/dummy2_page.dart';
 
 class Base extends StatefulWidget {
   const Base({super.key});

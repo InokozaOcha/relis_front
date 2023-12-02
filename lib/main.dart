@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:relis/base.dart';
-import 'package:relis/dummy1.dart';
+import 'package:relis/pages/dummy1/view/dummy1_page.dart';
 import 'package:relis/top.dart';
 
 Future<void> main() async {
