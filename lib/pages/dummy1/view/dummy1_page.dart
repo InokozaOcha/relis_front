@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:relis/pages/dummy1/view_model/dummy1_view_model.dart';
 import 'package:relis/pages/dummy2/view/dummy2_page.dart';
 
 class Dummy1 extends ConsumerWidget {
   const Dummy1({super.key});
+  static const rootName = 'd1';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,6 +31,7 @@ class Dummy1 extends ConsumerWidget {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Dummy2()));
+                //context.goNamed(Dummy2.rootName);
               },
               child: const Text('Next'),
             )
