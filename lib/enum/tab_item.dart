@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:relis/pages/dummy1/view/dummy1_page.dart';
 import 'package:relis/pages/dummy2/view/dummy2_page.dart';
+import 'package:relis/pages/task_list/view/tast_list_page.dart';
 
 enum TabItem {
   home(
@@ -14,6 +17,12 @@ enum TabItem {
     title: 'タイムライン',
     icon: Icons.timeline,
     page: Dummy2(),
+  ),
+
+  schedule(
+    title: 'スケジュール',
+    icon: Icons.add_task,
+    page: TaskList(),
   );
 
   // settings(
