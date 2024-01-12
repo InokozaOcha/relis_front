@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:relis/models/auth_model.dart';
@@ -22,6 +23,11 @@ class AuthNotifier extends StateNotifier<AuthModel> {
   void changePage(int no) {
     state = state.copyWith(number: no);
   }
+
+  // void changeUser() {
+  //   var user = FirebaseAuth.instance.currentUser?.uid;
+  //   state = state.copyWith(userId: user ?? "");
+  // }
 
   page(int index) {
     Widget page;

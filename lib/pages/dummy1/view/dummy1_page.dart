@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,6 +16,10 @@ class Dummy1 extends ConsumerWidget {
     final dummyModel = ref.watch(dummy1PageProvider);
     // Provider
     final dummyPageNotifirer = ref.watch(dummy1PageProvider.notifier);
+
+    final userdata = FirebaseAuth.instance.currentUser;
+    debugPrint(userdata?.uid ?? "aaa");
+
     return Scaffold(
         appBar: AppBar(),
         floatingActionButton: FloatingActionButton(
@@ -27,6 +32,7 @@ class Dummy1 extends ConsumerWidget {
             const Text('Dummy1'),
             Text('タイトル ${dummyModel.title}'),
             Text(dummyModel.number.toString()),
+            Text(userdata?.uid ?? '値がない'),
             OutlinedButton(
               onPressed: () {
                 Navigator.push(context,
