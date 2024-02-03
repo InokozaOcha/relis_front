@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:relis/background.dart';
 import 'package:relis/base.dart';
 import 'package:relis/base2.dart';
 import 'package:relis/base3.dart';
 import 'package:relis/base4.dart';
 import 'package:relis/base5.dart';
 import 'package:relis/pages/dummy1/view/dummy1_page.dart';
+import 'package:relis/pages/login/view_model/ligin_view_model.dart';
 import 'package:relis/top.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -25,6 +27,8 @@ Future<void> main() async {
   //   //debugPrint(error as String?);
   // });
 
+  //logincheck();
+
   runApp(ProviderScope(
       child: MaterialApp(
           title: 'Relis',
@@ -32,7 +36,7 @@ Future<void> main() async {
           darkTheme: ThemeData.dark(), // ダーク用テーマ
           themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
-          home: Base5())));
+          home: Background())));
 }
 
 // class MyApp extends StatelessWidget {

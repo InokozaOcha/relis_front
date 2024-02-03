@@ -11,5 +11,6 @@ class AuthModel with _$AuthModel {
     @Default(1) int number,
     @Default(false) bool haslogin,
     @Default('') String userId,
+    @Default(false) bool isAnonymous,
   }) = _AuthModel;
 }

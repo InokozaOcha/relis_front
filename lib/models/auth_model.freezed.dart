@@ -20,6 +20,7 @@ mixin _$AuthModel {
   int get number => throw _privateConstructorUsedError;
   bool get haslogin => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  bool get isAnonymous => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthModelCopyWith<AuthModel> get copyWith =>
@@ -31,7 +32,12 @@ abstract class $AuthModelCopyWith<$Res> {
   factory $AuthModelCopyWith(AuthModel value, $Res Function(AuthModel) then) =
       _$AuthModelCopyWithImpl<$Res, AuthModel>;
   @useResult
-  $Res call({String title, int number, bool haslogin, String userId});
+  $Res call(
+      {String title,
+      int number,
+      bool haslogin,
+      String userId,
+      bool isAnonymous});
 }
 
 /// @nodoc
@@ -51,6 +57,7 @@ class _$AuthModelCopyWithImpl<$Res, $Val extends AuthModel>
     Object? number = null,
     Object? haslogin = null,
     Object? userId = null,
+    Object? isAnonymous = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -69,6 +76,10 @@ class _$AuthModelCopyWithImpl<$Res, $Val extends AuthModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      isAnonymous: null == isAnonymous
+          ? _value.isAnonymous
+          : isAnonymous // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -81,7 +92,12 @@ abstract class _$$AuthModelImplCopyWith<$Res>
       __$$AuthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, int number, bool haslogin, String userId});
+  $Res call(
+      {String title,
+      int number,
+      bool haslogin,
+      String userId,
+      bool isAnonymous});
 }
 
 /// @nodoc
@@ -99,6 +115,7 @@ class __$$AuthModelImplCopyWithImpl<$Res>
     Object? number = null,
     Object? haslogin = null,
     Object? userId = null,
+    Object? isAnonymous = null,
   }) {
     return _then(_$AuthModelImpl(
       title: null == title
@@ -117,6 +134,10 @@ class __$$AuthModelImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      isAnonymous: null == isAnonymous
+          ? _value.isAnonymous
+          : isAnonymous // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -128,7 +149,8 @@ class _$AuthModelImpl with DiagnosticableTreeMixin implements _AuthModel {
       {this.title = '',
       this.number = 1,
       this.haslogin = false,
-      this.userId = ''});
+      this.userId = '',
+      this.isAnonymous = false});
 
   @override
   @JsonKey()
@@ -142,10 +164,13 @@ class _$AuthModelImpl with DiagnosticableTreeMixin implements _AuthModel {
   @override
   @JsonKey()
   final String userId;
+  @override
+  @JsonKey()
+  final bool isAnonymous;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthModel(title: $title, number: $number, haslogin: $haslogin, userId: $userId)';
+    return 'AuthModel(title: $title, number: $number, haslogin: $haslogin, userId: $userId, isAnonymous: $isAnonymous)';
   }
 
   @override
@@ -156,7 +181,8 @@ class _$AuthModelImpl with DiagnosticableTreeMixin implements _AuthModel {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('number', number))
       ..add(DiagnosticsProperty('haslogin', haslogin))
-      ..add(DiagnosticsProperty('userId', userId));
+      ..add(DiagnosticsProperty('userId', userId))
+      ..add(DiagnosticsProperty('isAnonymous', isAnonymous));
   }
 
   @override
@@ -168,11 +194,14 @@ class _$AuthModelImpl with DiagnosticableTreeMixin implements _AuthModel {
             (identical(other.number, number) || other.number == number) &&
             (identical(other.haslogin, haslogin) ||
                 other.haslogin == haslogin) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.isAnonymous, isAnonymous) ||
+                other.isAnonymous == isAnonymous));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, number, haslogin, userId);
+  int get hashCode =>
+      Object.hash(runtimeType, title, number, haslogin, userId, isAnonymous);
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +215,8 @@ abstract class _AuthModel implements AuthModel {
       {final String title,
       final int number,
       final bool haslogin,
-      final String userId}) = _$AuthModelImpl;
+      final String userId,
+      final bool isAnonymous}) = _$AuthModelImpl;
 
   @override
   String get title;
@@ -196,6 +226,8 @@ abstract class _AuthModel implements AuthModel {
   bool get haslogin;
   @override
   String get userId;
+  @override
+  bool get isAnonymous;
   @override
   @JsonKey(ignore: true)
   _$$AuthModelImplCopyWith<_$AuthModelImpl> get copyWith =>

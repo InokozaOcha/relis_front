@@ -13,50 +13,26 @@ final _navigatorKeys = <TabItem, GlobalKey<NavigatorState>>{
   TabItem.timeline: GlobalKey<NavigatorState>(),
 };
 
-class Base5 extends HookConsumerWidget {
-  const Base5({super.key});
+class Background extends HookConsumerWidget {
+  const Background({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     //State
-    //final aaa = FirebaseAuth.instance.authStateChanges();
 
     final authModel = ref.watch(AuthPageProvider);
     // // Provider
     final authPageNotifirer = ref.watch(AuthPageProvider.notifier);
 
-    // FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    //   if (user == null) {
-    //     debugPrint('User is currently signed out!');
-    //   } else {
-    //     debugPrint('User is signed in!');
-    //     debugPrint(user.uid);
-    //     authPageNotifirer.setUid2(user.uid);
-    //   }
-    // });
-
-    final aaa = FirebaseAuth.instance.currentUser?.uid;
+    final uid = FirebaseAuth.instance.currentUser?.uid;
     debugPrint('初回起動');
-    debugPrint(aaa);
+
     //selectedIndex = authModel.number;
     var sideBarKey = GlobalKey<ScaffoldState>();
     sideBarKey.currentState?.openDrawer();
     final currentTab = useState(TabItem.home);
 
-    //authPageNotifirer.logincheck2();
-    //authPageNotifirer.checkUser();
-    //if (authModel.haslogin) {
-
-    // ignore: unrelated_type_equality_checks
-    //final userdata = FirebaseAuth.instance.currentUser;
-    // debugPrint("`ログインのチェック");
-
-    // debugPrint(authModel.userId);
-    // ignore: unrelated_type_equality_checks
-
-    //if (userdata?.uid != "" && userdata?.uid != null) {
-    //if (authModel.userId != "") {
-    if (aaa != null) {
+    if (uid != null) {
       if (MediaQuery.of(context).size.width < 800) {
         return Scaffold(
           body: Stack(

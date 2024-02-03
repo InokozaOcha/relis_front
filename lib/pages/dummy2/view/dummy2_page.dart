@@ -34,7 +34,11 @@ class Dummy2 extends ConsumerWidget {
             Text('タイトル ${dummyModel.title}'),
             Text(dummyModel.number.toString()),
             OutlinedButton(
-              onPressed: authPageNotifirer.toggleLogin,
+              //onPressed: authPageNotifirer.toggleLogin,
+              onPressed: () {
+                debugPrint("ログアウおと");
+                authPageNotifirer.logout();
+              },
               child: const Text('ログアウト'),
             )
           ],
